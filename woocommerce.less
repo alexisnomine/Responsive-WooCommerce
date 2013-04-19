@@ -180,8 +180,6 @@ p.demo_store {
 
 		/* Product image and thumbnail */
 		div.images {
-			float:left;
-			width: 48%;
 			margin-bottom: 2em;
 			img {
 				display:block;
@@ -209,8 +207,6 @@ p.demo_store {
 
 		/* Summary div (contains title, price etc) */
 		div.summary {
-			float: right;
-			width: 48%;
 			margin-bottom: 2em;
 		}
 
@@ -434,27 +430,11 @@ p.demo_store {
 		}
 	}
 
-	.related, .upsells.products {
-		.clearfix();
-		ul.products, ul {
-			float:none;
-			li.product {
-				width: 48%;
-				img {
-					width: 100%;
-					height:auto;
-				}
-			}
-		}
-	}
-
 	ul.products {
 		li.product {
-			float:left;
-			margin: 0 3.8% 2.992em 0;
+			margin: 0 0 2.992em 0;
 			padding: 0;
 			position: relative;
-			width: 22.05%;
 			margin-left: 0;
 			.onsale {
 				top: 0;
@@ -504,12 +484,6 @@ p.demo_store {
 					color:fade( desaturate( @highlight, 75% ), 50% );
 				}
 			}
-		}
-		li.first {
-			clear:both;
-		}
-		li.last {
-			margin-right: 0;
 		}
 	}
 
@@ -1741,6 +1715,7 @@ p.demo_store {
 		}
 	}
 } // end .woocommerce-page namespacing wrap
+
 @media
 (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
@@ -1790,6 +1765,73 @@ p.demo_store {
 		}
 		a.star-5 {
 			width:3.5em;
+		}
+	}
+}
+
+@media only screen and (min-width: 480px) {
+	.woocommerce, .woocommerce-page {
+		ul.products {
+			li.product {
+				width:48%;
+				float: left;
+				clear: both;
+				&:nth-child(2n) {
+					float: right;
+					clear: none;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.woocommerce, .woocommerce-page {
+		div.product, #content div.product {
+			div.images {
+				float:left;
+				width: 48%;
+			}
+			div.summary {
+				float: right;
+				width: 48%;
+			}
+		}
+		ul.products {
+			li.product {
+				margin-right: 1.8%;
+				width: 32.05%;
+				&:nth-child(2n) {
+					clear: none;
+					float: left;
+				}
+				&:nth-child(3n) {
+					clear: none;
+					float: left;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	.woocommerce, .woocommerce-page {
+		ul.products {
+			li.product {
+				clear: none;
+				margin-right: 3.8%;
+				width: 22.05%;
+				&:nth-child(3n) {
+					margin-right: 3.8%;
+				}
+				&.first {
+					clear: both;
+				}
+				&.last {
+					margin-right:0;
+				}
+			}
 		}
 	}
 }
